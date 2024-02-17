@@ -43,23 +43,31 @@ How to use this solution template
 
 5.  You will see a pipeline created as shown in the following example:
 
-    <img src="./media/copyfrom_restapi_to_json_6.png" style="width:4.504in;height:3.13981in" />
+    <img src="./media/created_template.png" style="width:4.504in;height:3.13981in" />
 
 
 Pipeline
 --------
 
-### Variables
+### Parameters
 
-1.  **OutputContainer:** The output container where you are copying the
-    file to. It defaults to “profisee-output”. You can update to
-    another name based on your environment.
+1.  **model:** The Model chosen for this template is gpt-3.5-turbo, other models can be checked in the official OpenAI API documentation.
 
-2.  **EntityId:** The entity you are copying records for. Note, the
-    entityId can be either the entity’s Name, UID, or InternalId
-    value.
+2.  **token:** The OpenAI Token is an authentication key necessary for accessing OpenAI's services via its API. It's obtained upon registration and grants access to the API. This unique token must be included in every request to authenticate and authorize access to the services provided by OpenAI.
 
-    <img src="./media/copyfrom_restapi_to_json_8.png" style="width:4.04in;height:1.39674in" />
+    <img src="./media/parameters.png" style="width:4.04in;height:1.39674in" />
+
+Lookup Activity
+-------------
+
+### Settings
+
+1.  **First row only:** Indicates whether to return just the first row or all rows. In our template we are using this unchecked option to get all items from the Cosmos DB container.
+
+2.  **Use query:** Define in the query an attribute of the Cosmos DB container item that will be read by the Rest API later in the copy activity.
+
+    <img src="./media/lookup_settings.png" style="width:4.04in;height:1.39674in" />
+
 
 Copy Activity
 -------------
@@ -68,48 +76,11 @@ Copy Activity
 
 1.  Dataset properties:
 
-    1.  **entityId** - Uses the EntityId variable value.
+    1.  **Request body** - Using the Pipeline expression builder, the "content" property of the second "messages" array object must be changed with the Cosmos DB container item attribute defined in the Lookup Activity query.
     
-    2.  **pageSize** - The page size to get.  Defaults to 1000 if not supplied.
-    
-    3.  **filter** - A filter to restrict the records returned.
-        1.  \[&lt;attribute name&gt;\] &lt;operator&gt; &lt;value&gt;.
-            -   Example: \[Color\] eq ‘BLU’.
-        2.  The filter can include multi-level attributes (MLAs).
-            -   Example: \[ProductSubCategory\]/\[ProductCategory\] eq '1'.
-        3.  You can group attributes together using parenthesis and ANDs and ORs.
-    
-    4.  **attributes** - A comma separated list of entity attribute names to
-        return.  The list can include multi-level attributes (MLAs). If
-        blank, all attributes are returned. Note: the attribute list
-        determines the result properties you will see in the **Mapping**
-        tab.
-        1.  MLAs are supported, using the ‘/’ to separate each part of the MLA path
-        2.  Example: \[Color\],\[Class\],\[ProductSubCategory\],\[SellStartDate\],\[SellEndDate\],\[Weight\],\[ProductSubCategory\]/\[ProductCategory\]/\[ProductGroup\]
-    
-    5.  **orderBy** - A comma separated list of entity attribute names and direction to order the response
-        1.  \[&lt;attribute name&gt;\] or \[&lt;attribute name&gt;\] asc - sorts attribute in ascending order
-        2.  \[&lt;attribute name&gt;\] desc - sorts attribute in descending order
-        3.  Example: \[ProductSubCategory\], \[SellStartDate\] desc
-    
-    6.  **dbaFormat** - The domain-based attribute (DBA) format to return.
-        Provides an option to indicate how to return the DBA's Code and
-        Name.  Note: a DBA is an attribute that points to, or references,
-        another entity, called a domain entity. 
-        1.  Code only (default) - Only return the code value.
-            -   Example: 
-                -   "Source System": "SF",
-        2.  Code and Name simple properties.  The name property is returned as DBA.Name.
-            -   Example: 
-                -   "Source System": "SF",
-                -   "Source System.Name": "Salesforce",
-    
-    7.  **recordCodes** – A comma separated list of record codes to restrict the records returned. 
-    
-    8.  You can find more information on these parameters on the Profisee REST API Swagger page. You can find it at https://&lt;host 
-        name&gt;/Profisee/rest.
-    
-        <img src="./media/copyfrom_restapi_to_json_9.png" style="width:4.624in;height:2.12279in" />
+    2.  **Additional columns** - Note that it is possible to add new attributes dynamically, where their values ​​can be obtained according to the Lookup activity query. These Attributes will be added to the JSON that will be copied to the Cosmos DB Container.
+        
+        <img src="./media/copy_source_.png" style="width:4.624in;height:2.12279in" />
 
 
 ### Sink
