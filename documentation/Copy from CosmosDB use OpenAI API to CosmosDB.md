@@ -24,21 +24,20 @@ How to use this solution template
 
     <img src="./media/template.png" style="width:2.62292in;height:1.79097in" />
 
-1.  Create a **New** or use an existing connection to the source
-    Profisee REST API.
+2.  Create a **New** or use an existing connection to the source
+    Cosmos DB and REST linked service.
 
-    <img src="./media/copyfrom_restapi_to_json_3.png" style="width:4.376in;height:2.78549in" />
+    <img src="./media/use_template_linked1.png" style="width:4.376in;height:2.78549in" />
+
+3.  Create a **New** or use an existing connection to the Cosmos DB source.
 
     Follow these steps if you need to create a new REST linked service.
     
     1.  Select “+ New" from the **REST** dropdown list.
     
-        <img src="./media/copyfrom_restapi_to_json_4.png" style="width:2.06135in;height:1.29089in" />
+        <img src="./media/new_ls_rest.png" style="width:2.06135in;height:1.29089in" />
     
     2.  See [REST Linked Service](REST%20Linked%20Service.md) for information on setting up the REST linked service.
-
-3.  Create a **New** or use an existing connection to the ADLS Gen2 sink
-    data store that you are copying data to.
 
 4.  Select **Use this template**.
 
