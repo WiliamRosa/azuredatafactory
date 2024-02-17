@@ -83,73 +83,12 @@ Copy Activity
         <img src="./media/copy_source.png" style="width:4.624in;height:2.12279in" />
 
 
-### Sink
-
-1.  Dataset properties
-
-    1.  FolderName – A concatenation of the OutputContainer and the EntityId.
-    2.  FileName – A concatenation of the EntityId and a timestamp.
-	
-    <img src="./media/copyfrom_restapi_to_json_11.png" style="width:4.98747in;height:1.76in" />
-
-### Mapping
-
-Select **Mapping** tab to map the records result properties to the corresponding JSON column.
-
-First click the **Import Schemas** button. You will be prompted to confirm the value of the pipeline variable for the EntityId. Click **OK**.
-
-<img src="./media/copyfrom_restapi_to_json_12.png" style="width:3.19951in;height:2.28221in" />
-
-After a couple of seconds, you will see a list of mapping fields
-listed, as shown in the following example.
-
-<img src="./media/copyfrom_restapi_to_json_13.png" style="width:6.208in;height:4.128in" />
-
-Next, select **data** from the **Collection reference** drop down
-list. The **data** property is the array of records.
-
-<img src="./media/copyfrom_restapi_to_json_14.png" style="width:3.70779in;height:0.45753in" />
-
-Unselect the Include checkboxes for the pageNbr, pageSize,
-resultCount, totalPages, totalRecords, and nextPage properties as we
-do not want to copy them to the file.
-
-<img src="./media/copyfrom_restapi_to_json_15.png" style="width:5.29221in;height:1.43161in" />
-
-After selecting the data collection reference, you need to correct the
-Column names for each property you want to copy by removing the
-**\[‘data’\]\[0\]** part of the column name.
-
-From this
-
-  <img src="./media/copyfrom_restapi_to_json_16.png" style="width:6.09583in;height:0.52778in" />
-
-To this
-
-  <img src="./media/copyfrom_restapi_to_json_17.png" style="width:4.76in;height:0.52228in" />
-
-**Quick Tip:** Depending on the number of fields, correcting the
-column name may take several minutes. Click the { } (Code) icon in the
-right side of the pipeline toolbar.
-
-  <img src="./media/copyfrom_restapi_to_json_18.png" style="width:5.152in;height:2.28592in" />
-
-Scroll down to the mappings section. Then select **\[‘data’\]\[0\]**
-and press Ctrl+H to replace this string with an empty string. Press
-the Replace all button. Once done replacing, press the OK button.
-
-  <img src="./media/copyfrom_restapi_to_json_19.png" style="width:4.864in;height:2.97037in" />
-
-Go back into the Copy data Mapping tab and now your Column names should all be updated.
-
-  <img src="./media/copyfrom_restapi_to_json_20.png" style="width:5.008in;height:2.94166in" />
-
 Publish
 -------
 
 Once you are finished with all your changes, click **Publish All**.
 
-<img src="./media/copyfrom_restapi_to_json_21.png" style="width:1.36994in;height:0.29043in" />
+<img src="./media/publish_all.png" style="width:1.36994in;height:0.29043in" />
 
 Triggering
 ----------
@@ -163,15 +102,16 @@ Triggering
 3.  When the pipeline run completes successfully, you would see results
     like the following example:
 
-    <img src="./media/copyfrom_restapi_to_json_22.png" style="width:5.85833in;height:1.11597in" />
+    <img src="./media/monitor_sucess.png" style="width:5.85833in;height:1.11597in" />
 
-4.  You should also see the output file in the Container and Directory
-    you entered.
+4.  You should also see the output items in the Cosmos DB container.
 
-    <img src="./media/copyfrom_restapi_to_json_23.png" style="width:3.6in;height:1.456in" />
+    <img src="./media/CosmosDestination.png" style="width:3.6in;height:1.456in" />
 
 Next steps
 ----------
 
 -   [Introduction to Azure Data
     Factory](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/data-factory/introduction.md)
+
+-	[Open AI Official Documentation](https://platform.openai.com/docs/guides/text-generation/chat-completions-api)
