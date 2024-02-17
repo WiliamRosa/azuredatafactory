@@ -1,4 +1,4 @@
-Copy from Cosmos DB, iterate and use OpenAI API to Cosmos DB
+Incremental copy from Cosmos DB using OpenAI API to Cosmos DB
 ==========================================
 
 This article describes a solution model that you can use to copy items from a Cosmos DB Source Container by filtering via query the attributes through the Lookup activity and using the copy activity to iterate the items with OpenAI API to store the JSON in the container Cosmos DB destination.
