@@ -20,9 +20,9 @@ For example:
 How to use this solution template
 ---------------------------------
 
-1.  Go to the **Copy from Profisee REST API to JSON** template.
+1.  Go to the **Incremental copy from Cosmos DB using OpenAI API to Cosmos DB** template.
 
-    <img src="./media/copyfrom_restapi_to_json_2.png" style="width:2.62292in;height:1.79097in" />
+    <img src="./media/template.png" style="width:2.62292in;height:1.79097in" />
 
 1.  Create a **New** or use an existing connection to the source
     Profisee REST API.
