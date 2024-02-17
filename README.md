@@ -1,18 +1,15 @@
 # Azure Data Factory
 
-This repository contains all the Azure Data Factory (ADF) templates and describes how to clone them wth Git or import them directly into ADF.
-
-## templates
-
-https://github.com/WiliamRosa/azuredatafactory/tree/main/templates for all the templates that can be cloned into your azuredatafactory GitHub repository.
+This repository contains all the Azure Data Factory (ADF) templates and describes how to import them directly into ADF.
 
 ## templates-exported
 
-https://github.com/WiliamRosa/azuredatafactory/tree/main/templates for all the exported templates that you can import directly into ADF.
+https://github.com/WiliamRosa/azuredatafactory/tree/main/documentation/templates-exported for all the exported templates that you can import directly into ADF.
+
 
 ## documentation
 
-https://github.com/WiliamRosa/azuredatafactory/tree/main/templates for all the Profisee ADF template documentation.
+https://github.com/WiliamRosa/azuredatafactory/blob/main/documentation/Copy%20from%20CosmosDB%20use%20OpenAI%20API%20to%20CosmosDB.md for all the ADF template documentation.
 
 
 
