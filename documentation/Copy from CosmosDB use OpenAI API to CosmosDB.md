@@ -1,33 +1,21 @@
-Copy from Profisee REST API to JSON Format
+Copy from Cosmos DB, iterate and use OpenAI API to Cosmos DB
 ==========================================
 
-This article describes a solution template that you can use to copy
-records from Profisee REST API to Azure Data Lake Storage Gen2 storage,
-in JSON format.
+This article describes a solution model that you can use to copy items from a Cosmos DB Source Container by filtering via query the attributes through the Lookup activity and using the copy activity to iterate the items with OpenAI API to store the JSON in the container Cosmos DB destination.
 
 About this solution template
 ----------------------------
 
-This template retrieves records from Profisee REST API. It then copies
-the records, in JSON format, to a file in an output container. The
-template is designed to work with a folder structure consisting of
-folders named for each entity within the output container. Create a
-folder for each entity you wish to integrate with. JSON files for an
-entity will get created to the profisee-output\\&lt;entity&gt; folder.
-
-When the pipeline created by the template is run, it will create a
-folder for the entity, if it doesn’t exist, and copy the file to that
-folder. The file name is composed of the entity name and date/time in
-UTC with the .json extension.
+This model retrieves items from a Cosmos DB source container through the Lookup activity, with the necessary attributes being selected via query, and the Lookup output is dynamically configured in the Foreach activity that iterates the items, passing each attribute to the copy activity that was configured with the sink defining the OpenAI parameters storing the resulting JSON in a Cosmos DB destination container.
 
 For example:
 
--   profisee-output
-    -   account
-    -   customer
-    -   product
+-   Cosmos DB 
+        -   Database
+            -   Container
+                -   Items
 
-<img src="./media/copyfrom_restapi_to_json_1.png" style="width:3.80106in;height:2.44509in" />
+<img src="./media/CosmosSource.png" style="width:3.80106in;height:2.44509in" />
 
 How to use this solution template
 ---------------------------------
