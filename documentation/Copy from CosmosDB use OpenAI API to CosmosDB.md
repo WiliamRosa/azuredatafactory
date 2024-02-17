@@ -80,7 +80,7 @@ Copy Activity
     
     2.  **Additional columns** - Note that it is possible to add new attributes dynamically, where their values ​​can be obtained according to the Lookup activity query. These Attributes will be added to the JSON that will be copied to the Cosmos DB Container.
         
-        <img src="./media/copy_source_.png" style="width:4.624in;height:2.12279in" />
+        <img src="./media/copy_source.png" style="width:4.624in;height:2.12279in" />
 
 
 ### Sink
